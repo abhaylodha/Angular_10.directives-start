@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <li class="list-group-item">
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <div *ngIf="onlyOdd">
+          <div>Only odd1</div>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <ng-template [ngIf]="onlyOdd">
+          <div>Only odd2</div>
+        </ng-template>
+      </div>
+      <div class="col-xs-3">
+        <ng-template [appUnless]="!onlyOdd">
+          <div>Only odd3</div>
+        </ng-template>
+      </div>
+      <div class="col-xs-3">
+        <div *appUnless="!onlyOdd">
+          <div>Only odd4</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p appBasicHighlight>Basic Highlight Directive</p>
+        <p appBetterHighlight>Better Highlight Directive</p>
+        <p appBestHighlight>Best Highlight Directive</p>
+        <p [appParameterisedColor]="'red'" [bgColorInput]="'yellow'">
+          Parameterised Highlight Directive</p>
+        <p appParameterisedColor [bgColorInput]="'yellow'" [appParameterisedColor]="'red'">
+          Parameterised Highlight Directive2</p>
+        <p [appParameterisedColor]="'red'" bgColorInput="yellow">
+          Parameterised Highlight Directive 3</p>
+      </div>
+    </div>
+  </div>
+</div>
